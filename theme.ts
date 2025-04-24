@@ -5,6 +5,8 @@ export const lightTheme = {
     background: colors.linen,
     background_second: colors.fantasy,
     primary: colors.chilean_fire,
+    primaryPressed: 'rgba(255, 87, 34, 0.50)',
+    primaryHovered: 'rgba(255, 87, 34, 0.95)',
     secondary: colors.mosque,
     accent: colors.golden_tainoi,
     vinylBlack: colors.coffee_bean,
