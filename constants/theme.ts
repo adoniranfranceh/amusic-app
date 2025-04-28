@@ -1,20 +1,20 @@
-import { colors } from './colors';
+import { Colors } from './Colors';
 
 export const lightTheme = {
   colors: {
-    background: colors.linen,
-    background_second: colors.fantasy,
-    primary: colors.chilean_fire,
+    background: Colors.linen,
+    backgroundSecondary: Colors.fantasy,
+    primary: Colors.chilean_fire,
     primaryPressed: 'rgba(255, 87, 34, 0.50)',
     primaryHovered: 'rgba(255, 87, 34, 0.95)',
-    secondary: colors.mosque,
-    accent: colors.golden_tainoi,
-    vinylBlack: colors.coffee_bean,
-    redCenter: colors.medium_carmine,
-    cream: colors.old_lace,
-    textPrimary: colors.night_rider,
-    textSecondary: colors.mortar,
-    white: colors.white,
+    secondary: Colors.mosque,
+    accent: Colors.golden_tainoi,
+    vinylBlack: Colors.coffee_bean,
+    redCenter: Colors.medium_carmine,
+    cream: Colors.old_lace,
+    textPrimary: Colors.night_rider,
+    textSecondary: Colors.mortar,
+    white: Colors.white,
     overlay: 'rgba(58, 45, 40, 0.1)',
   },
 
@@ -52,14 +52,14 @@ export const lightTheme = {
 
   shadows: {
     card: {
-      shadowColor: colors.coffee_bean,
+      shadowColor: Colors.coffee_bean,
       shadowOpacity: 0.08,
       shadowOffset: { width: 0, height: 2 },
       shadowRadius: 4,
       elevation: 2,
     },
     button: {
-      shadowColor: colors.medium_carmine,
+      shadowColor: Colors.medium_carmine,
       shadowOpacity: 0.2,
       shadowOffset: { width: 0, height: 3 },
       shadowRadius: 6,
@@ -69,19 +69,19 @@ export const lightTheme = {
 
   button: {
     primary: {
-      backgroundColor: colors.chilean_fire,
+      backgroundColor: Colors.chilean_fire,
       paddingVertical: 14,
       paddingHorizontal: 32,
       borderRadius: 30,
     },
     accent: {
-      backgroundColor: colors.golden_tainoi,
+      backgroundColor: Colors.golden_tainoi,
       paddingVertical: 14,
       paddingHorizontal: 32,
       borderRadius: 30,
     },
     text: {
-      color: colors.white,
+      color: Colors.white,
       fontSize: 18,
       fontFamily: 'Rubik',
     },
@@ -90,19 +90,19 @@ export const lightTheme = {
 
 export const darkTheme = {
   colors: {
-    background: colors.bokara_grey,
-    background_second: colors.bokara_grey_secondary,
-    primary: colors.chilean_fire,
+    background: Colors.bokara_grey,
+    backgroundSecondary: Colors.bokara_grey_secondary,
+    primary: Colors.chilean_fire,
     primaryPressed: 'rgba(255, 87, 34, 0.50)',
     primaryHovered: 'rgba(255, 87, 34, 0.95)',
-    secondary: colors.mosque,
-    accent: colors.golden_tainoi,
-    vinylBlack: colors.wood_bark,
-    redCenter: colors.medium_carmine,
-    cream: colors.half_colonial_white,
-    textPrimary: colors.linen,
-    textSecondary: colors.very_light_grey,
-    white: colors.white,
+    secondary: Colors.mosque,
+    accent: Colors.golden_tainoi,
+    vinylBlack: Colors.wood_bark,
+    redCenter: Colors.medium_carmine,
+    cream: Colors.half_colonial_white,
+    textPrimary: Colors.linen,
+    textSecondary: Colors.very_light_grey,
+    white: Colors.white,
     overlay: 'rgba(250, 244, 230, 0.05)',
   },
 
@@ -140,14 +140,14 @@ export const darkTheme = {
 
   shadows: {
     card: {
-      shadowColor: colors.black,
+      shadowColor: Colors.black,
       shadowOpacity: 0.15,
       shadowOffset: { width: 0, height: 3 },
       shadowRadius: 5,
       elevation: 3,
     },
     button: {
-      shadowColor: colors.chilean_fire,
+      shadowColor: Colors.chilean_fire,
       shadowOpacity: 0.25,
       shadowOffset: { width: 0, height: 4 },
       shadowRadius: 6,
@@ -157,19 +157,19 @@ export const darkTheme = {
 
   button: {
     primary: {
-      backgroundColor: colors.chilean_fire,
+      backgroundColor: Colors.chilean_fire,
       paddingVertical: 14,
       paddingHorizontal: 32,
       borderRadius: 30,
     },
     accent: {
-      backgroundColor: colors.golden_tainoi,
+      backgroundColor: Colors.golden_tainoi,
       paddingVertical: 14,
       paddingHorizontal: 32,
       borderRadius: 30,
     },
     text: {
-      color: colors.linen,
+      color: Colors.linen,
       fontSize: 18,
       fontFamily: 'Rubik',
     },
