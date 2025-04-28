@@ -1,11 +1,11 @@
 import { Appearance } from 'react-native';
 import React from 'react';
-import { WelcomeLayout } from '@/components/ui/WelcomeLayout';
-import { darkTheme, lightTheme } from '../../theme';
+import { WelcomeLayout } from '@/components/layouts/WelcomeLayout';
+import { useTheme } from '@/context/ThemeContext';
 
 export default function HomeScreen() {
   const colorScheme = Appearance.getColorScheme() ?? 'light';
-  const theme = colorScheme === 'dark' ? darkTheme : lightTheme;
+  const { theme } = useTheme();
 
   return (
     <>
@@ -15,7 +15,6 @@ export default function HomeScreen() {
         buttonText="Explorar agora"
         onPress={() => console.log('Explorar')}
         logoImage={require('@/assets/images/AMusic-logo.png')}
-        theme={theme}
         colorScheme={colorScheme}
       />
     </>
