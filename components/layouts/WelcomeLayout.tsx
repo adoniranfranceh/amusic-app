@@ -35,13 +35,8 @@ export const WelcomeLayout = ({
   const { theme } = useTheme();
   
   const styles = StyleSheet.create({
-    safeArea: {
-      flex: 1,
-      backgroundColor: theme.colors.background,
-    },
-    container: {
-      flex: 1,
-      position: 'relative',
+    middleArea: {
+      flex: 0.95,
     },
     topBar: {
       position: 'absolute',
@@ -49,24 +44,12 @@ export const WelcomeLayout = ({
       left: 20,
       zIndex: 10,
     },
-    overlay: {
-      position: 'absolute',
-      backgroundColor: theme.colors.background,
-      height: '100%',
-      width: '100%',
-    },
-    content: {
-      flex: 1,
-      paddingHorizontal: theme.spacing.lg,
-    },
     headerSection: {
       alignItems: 'center',
       paddingTop: height * 0.15,
-      marginBottom: theme.spacing.xl,
     },
     logoWrapper: {
       shadowColor: theme.colors.accent,
-      shadowOffset: { width: 0, height: 0 },
       shadowOpacity: 0.8,
       shadowRadius: 10,
       elevation: 10,
@@ -90,13 +73,6 @@ export const WelcomeLayout = ({
       textAlign: 'center',
       marginBottom: theme.spacing.xl,
     },
-    scrollViewContainer: {
-      flex: 1,
-    },
-    scrollContent: {
-      flexGrow: 1,
-      alignItems: 'center',
-    },
     childrenContainer: {
       width: '100%',
       alignItems: 'center',
@@ -118,20 +94,22 @@ export const WelcomeLayout = ({
     buttonText: {
       ...theme.button.text,
       fontSize: theme.fontSizes.md,
+      color: theme.colors.white,
+      textAlign: 'center',
     },
   });
 
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <View style={{backgroundColor: theme.colors.background, flex: 1 }}>
-        <View style={styles.overlay} />
+    <SafeAreaView style={styles.middleArea}>
+      <View>
+        <View/>
         { showBackButton && (
           <Pressable onPress={onBackPress} style={styles.topBar}>
             <Icon name="arrow-left" size={28} color={theme.colors.textPrimary} />
           </Pressable>
         )}
 
-        <View style={styles.content}>
+        <View>
           <View style={styles.headerSection}>
             <View style={styles.logoWrapper}>
               <Image source={logoImage} style={styles.logo} />
