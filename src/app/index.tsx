@@ -11,11 +11,8 @@ export default function Index() {
   const [animationFinished, setAnimationFinished] = useState(false);
 
   useEffect(() => {
-    console.log('animationFinished:', animationFinished);
-    console.log('loadingInitial:', loadingInitial);
-    console.log('isAuthenticated:', isAuthenticated);
     if (animationFinished && !loadingInitial) {
-      router.replace(true ? '/(protected)/(tabs)' : '/(auth)');
+      router.replace(isAuthenticated ? '/(protected)/(tabs)' : '/(auth)');
     }
   }, [animationFinished, loadingInitial]);
 
