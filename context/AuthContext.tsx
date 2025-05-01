@@ -33,7 +33,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     async function loadUser() {
-      const token =  '';
+      const token = await SecureStore.getItemAsync('token');
 
       if (!token) {
         setLoadingInitial(false);
