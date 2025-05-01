@@ -1,9 +1,10 @@
-import { SafeAreaView, View } from 'react-native';
+import { SafeAreaView, View, Text, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { Stack } from 'expo-router';
 import { AuthProvider, ThemeProvider, useTheme } from '@/context';
 import { DarkTheme, DefaultTheme, ThemeProvider as NavigationThemeProvider } from '@react-navigation/native';
 import { useColorScheme } from '@/hooks';
+import { useFonts } from 'expo-font';
 
 export default function RootLayout() {
   return (
@@ -19,14 +20,30 @@ function LayoutInner() {
   const { theme } = useTheme();
   const colorScheme = useColorScheme();
 
+  const [fontsLoaded] = useFonts({
+    Rubik: require('@/assets/fonts/Rubik-VariableFont_wght.ttf'),
+  });
+
+  if (!fontsLoaded) {
+    return <View><Text>Loading fonts...</Text></View>;
+  }
+
   return (
     <NavigationThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <SafeAreaView style={{ flex: 1, backgroundColor: theme.colors.background }}>
+      <SafeAreaView style={[styles.container, { backgroundColor: theme.colors.background }]}>
         <View style={{ flex: 1 }}>
-          <Stack />
+          <Stack screenOptions={{ headerShown: false }} />
         </View>
         <StatusBar style="auto" />
       </SafeAreaView>
     </NavigationThemeProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 16,
+    fontFamily: 'Rubik-VariableFont_wght',
+  },
+});
