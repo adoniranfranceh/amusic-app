@@ -3,8 +3,7 @@ import { View, Animated, StyleSheet, Dimensions } from 'react-native';
 import { Colors } from '@/constants/Colors';
 import Logo from './Logo';
 import { timings, percent } from './animationTiming';
-
-const { width } = Dimensions.get('window');
+import { useTheme } from '@/context';
 
 export default function SplashAnimation({ onAnimationEnd }: { onAnimationEnd: () => void }) {
   const needleAnim = useRef(new Animated.Value(7)).current;
@@ -12,8 +11,8 @@ export default function SplashAnimation({ onAnimationEnd }: { onAnimationEnd: ()
   const glowOpacity = useRef(new Animated.Value(0)).current;
   const glowScale = useRef(new Animated.Value(0.9)).current;
   const logoScale = useRef(new Animated.Value(0)).current;
-  const logoOpacity = useRef(new Animated.Value(1)).current;
   const logoPosition = useRef(new Animated.Value(1)).current;
+  const { theme } = useTheme()
 
   const needleRotate = needleAnim.interpolate({
     inputRange: [0, 1.5],
@@ -128,7 +127,7 @@ export default function SplashAnimation({ onAnimationEnd }: { onAnimationEnd: ()
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
       <Animated.View
         style={[
           styles.glowContainer,
@@ -170,7 +169,6 @@ export default function SplashAnimation({ onAnimationEnd }: { onAnimationEnd: ()
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.black,
     alignItems: 'center',
     justifyContent: 'center',
   },
