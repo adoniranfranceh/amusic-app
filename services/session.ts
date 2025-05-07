@@ -10,23 +10,23 @@ const API_URL = process.env.EXPO_PUBLIC_API_URL || '';
 
 export async function loginUser({ email, password }: LoginCredentials) {
   try {
-    const response = await axios(`${API_URL}/api/v1/login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      data: JSON.stringify({ email, password }),
+    const response = await axios.post(`${API_URL}/api/v1/auth/login`, {
+      auth: { email, password }
     });
 
-    if (response.status < 200 || response.status >= 300) {
-      const error = response.data;
-      throw new Error(error.message || 'Erro ao fazer login');
+    const { access_token, refresh_token } = response.data;
+    
+    if (typeof access_token !== 'string') {
+      throw new Error('Token inválido');
     }
-
-    const data = await response.data
-
-    await SecureStore.setItemAsync('token', data.token);
-
-    return data.user;
-  } catch (error) {
-    throw error;
+    
+    await SecureStore.setItemAsync('access_token', access_token);
+    await SecureStore.setItemAsync('refresh_token', refresh_token);
+    
+    return true;
+  } catch (error: any) {
+    console.log('aaaaaaaaaaah', error)
+    console.error('Erro ao fazer login:', error);
+    throw new Error(error?.response?.data?.error || 'Erro ao fazer login');
   }
 }

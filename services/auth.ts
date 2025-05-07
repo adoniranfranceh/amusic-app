@@ -1,19 +1,6 @@
-import axios from 'axios';
-import * as SecureStore from 'expo-secure-store';
+import api from './api';
 
-const API_URL = process.env.EXPO_PUBLIC_API_URL || '';
-
-export async function getCurrentUser() {
-  const token = await SecureStore.getItemAsync('token');
-  if (!token) return null;
-
-  const res = await axios(`${API_URL}/api/v1/me`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-
-  if (res.status < 200 || res.status >= 300) return null;
-
+export async function getCurrentUser() {  
+  const res = await api.get('/api/v1/auth/me');
   return res.data;
 }
