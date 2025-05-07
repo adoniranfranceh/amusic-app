@@ -33,7 +33,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     async function loadUser() {
-      const token = await SecureStore.getItemAsync('token');
+      const token = await SecureStore.getItemAsync('access_token');
 
       if (!token) {
         setLoadingInitial(false);
@@ -48,7 +48,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           setIsAuthenticated(true);
         }
       } catch (error) {
-        console.error('Failed to load user:', error);
+        console.log('Token expirado ou inválido');
       } finally {
         setLoadingInitial(false);
         setLoading(false);
